@@ -1,0 +1,238 @@
+@font-face {
+  font-family: 'HankenGrotesk';
+  font-display: wrap;
+  font-weight: 100 900;
+  src: url(assets/fonts/HankenGrotesk-VariableFont_wght.ttf) format('truetype');
+}
+
+:root {
+  /* Cores dos cards */
+  --clr-card-red: hsl(0, 100%, 67%);
+  --clr-card-yellow: hsl(39, 100%, 56%);
+  --clr-card-green: hsl(166, 100%, 37%);
+  --clr-card-blue: hsl(234, 85%, 45%);
+
+  /* Cores do background dos cards */
+  --clr-card-red-background: rgba(255, 87, 87, 0.06);
+  --clr-card-yellow-background: rgba(255, 177, 31, 0.06);
+  --clr-card-green-background: rgba(0, 189, 145, 0.06);
+  --clr-card-blue-background: rgba(17, 36, 212, 0.06);
+
+  /* Cores fundo roxo */
+  --clr-bg-purple: hsl(241, 81%, 54%);
+  --clr-bg-purple-light: hsl(252, 100%, 67%);
+
+  /* Cores fundo círculo */
+  --clr-bg-circle: hsla(241, 72%, 46%, 0);
+  --clr-bg-circle-light: hsla(256, 72%, 46%, 1);
+
+  /* Cores neutras e de contexto */
+  --clr-neutral-white: hsl(0, 0%, 100%);
+  --clr-neutral-paleBlue: hsl(221, 100%, 96%);
+  --clr-neutral-lightLavender: hsl(241, 100%, 89%);
+  --clr-neutral-darkGrayBlue: hsl(224, 30%, 27%);
+
+  /* Cores para box-shadows */
+  --clr-neutral-darkGrayBlue-ligther: hsla(224, 30%, 27%, 0.2);
+  --clr-neutral-lightLavender-ligther: hsla(241, 100%, 89%, 0.443);
+
+  /* Fonts */
+
+  --font-size: 18px;
+  --font-family: 'Hanken Grotesk', sans-serif;
+
+  --fw-regular: 500;
+  --fw-medium: 700;
+  --fw-bold: 800;
+
+  /* Gradients */
+
+  --gradient-primary: linear-gradient(
+    0deg,
+    var(--clr-bg-purple) 0%,
+    var(--clr-bg-purple-light) 100%
+  );
+  --gradient-circle: linear-gradient(
+    0deg,
+    var(--clr-bg-circle) 0%,
+    var(--clr-bg-circle-light) 100%
+    );
+}
+
+/* Reset Css */
+
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  font: inherit;
+}
+
+img, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* Main Css */
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  color: #000;
+}
+
+@media (min-width: 600px) {
+  body {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+  }
+}
+
+.flex-group {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  flex-wrap: wrap;
+}
+
+.grid-flow {
+  display: grid;
+  align-content: start;
+  gap: 1rem;
+}
+
+.grid-flow[data-spacing="large"] {
+  gap: 2rem;
+}
+
+.section-title {
+  font-weight: var(--fw-medium);
+  font-size: 1.25rem;
+}
+
+.button {
+  color: #fff;
+  line-height: 1;
+  background: var(--clr-neutral-darkGrayBlue);
+  padding: 1rem 2rem;
+  border: 0;
+  border-radius: 100vh;
+  cursor: pointer;
+}
+
+.button:hover, .button:focus-visible {
+  background: var(--gradient-primary);
+}
+
+.result-summary {
+  --padding: 2.5rem;
+  --border-radius: 2rem;
+  max-width: 46rem;
+  display: grid;
+}
+
+@media (min-width: 600px) {
+  .result-summary {
+    margin-inline: 1rem;
+    grid-template-columns: 1fr 1fr;
+    border-radius: 2rem;
+    overflow: hidden;
+    box-shadow: .5rem 1rem 3rem var(--clr-neutral-lightLavender-ligther);
+  }
+}
+
+.results {
+  color: #ffffffa9;
+  text-align: center;
+  background: var(--gradient-primary);
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
+  padding: 
+  var(--padding) calc(var(--padding) * 1.5);
+}
+
+@media (min-width: 600px) {
+  .results {
+    border-radius: var(--border-radius);
+    }
+}
+
+.result-score {
+  display: grid;
+  place-content: center;
+  width: 12rem;
+  margin-inline: auto;
+  background: var(--gradient-circle);
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+}
+
+.result-score span {
+  display: block;
+  font-size: 75px;
+  font-weight: var(--fw-bold);
+  line-height: 1;
+  color: #fff;
+}
+
+.result-rank {
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: var(--fw-medium);
+}
+
+.summary {
+  padding: var(--padding);
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-radius: .5rem;
+}
+
+
+.summary-item[data-item-type="accent-1"] p {
+  color: var(--clr-card-red);
+}
+
+.summary-item[data-item-type="accent-2"] p {
+ color: var(--clr-card-yellow);
+}
+
+.summary-item[data-item-type="accent-3"] p {
+ color: var(--clr-card-green);
+}
+
+.summary-item[data-item-type="accent-4"] p {
+  color: var(--clr-card-blue);
+}
+
+.summary-item[data-item-type="accent-1"]  {
+  background-color: var(--clr-card-red-background);
+}
+
+.summary-item[data-item-type="accent-2"] {
+  background-color: var(--clr-card-yellow-background);
+}
+
+.summary-item[data-item-type="accent-3"]  {
+  background-color: var(--clr-card-green-background);
+}
+
+.summary-item[data-item-type="accent-4"]  {
+  background-color: var(--clr-card-blue-background);
+}
+
+.score {
+  color: #00000063;
+}
+
+
+
+
+
